@@ -2,11 +2,10 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: orange; icon-glyph: magic;
 log(`${Script.name()}.js`)
-//SCRIPT NAME
 
 //CHECK CODE
 updateversionlink = "https://raw.githubusercontent.com/ed246810/Scriptable-updatable-code/main/version.json"
-scriptlink=""
+scriptlink="https://raw.githubusercontent.com/ed246810/Scriptable-updatable-code/main/code.js"
 
 //FUNCTION
 async function getDataJSON(link)
@@ -27,10 +26,10 @@ async function checkupdate(version)
 	{
 		//GET LATEST CODE
 		let req = new Request(scriptlink)
-		upadtedcode = await req.loadString()
+		updatedcode = await req.loadString()
 		//FIND SCRIPT LOCATION ON DEVICE
 		fm = FileManager.iCloud()
-		let path = fm.joinpath(fm.documentsDirectory(),`${Script.name()}.js`)
+		let path = fm.joinPath(fm.documentsDirectory(),`${Script.name()}.js`)
 		log(path)
 		//UPDATE SCRIPT
 		fm.writeString(path,updatedcode)
@@ -41,4 +40,4 @@ async function checkupdate(version)
 
 
 
-await checkupdate(2.8)
+await checkupdate(1.0)
